@@ -1,10 +1,66 @@
-[gd_scene load_steps=2 format=3 uid="uid://yqmk0vpvnyxr"]
+[gd_scene load_steps=9 format=4 uid="uid://yqmk0vpvnyxr"]
 
 [ext_resource type="PackedScene" uid="uid://bc2fujtl13g10" path="res://scenes/Player.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://cluh2ekc38ktx" path="res://assets/kenney_platformerpack/Spritesheets/spritesheet_gr_dirt.png" id="2_oi5mt"]
+[ext_resource type="Texture2D" uid="uid://chgqimvh7rdh6" path="res://assets/Familiar Looking Rocket.png" id="3_soxxn"]
+[ext_resource type="PackedScene" uid="uid://tvuu2kbswp13" path="res://Area Trigger.tscn" id="4_3ly3h"]
+[ext_resource type="PackedScene" uid="uid://d0cgocahdysq4" path="res://ikan.tscn" id="5_43ti4"]
+[ext_resource type="PackedScene" uid="uid://bpkyurio76c4e" path="res://AreaTriggerLose.tscn" id="6_o865g"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ggkh4"]
+texture = ExtResource("2_oi5mt")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, 64, 64, -2, 64, -64, 64, -64, -18)
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, 64, 64, -4, 56, -50, 25, -64, -18)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, -4, 49, 27, 12, 50, -32, 64, -64, 64)
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_rlftl"]
+tile_size = Vector2i(128, 128)
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 0
+sources/0 = SubResource("TileSetAtlasSource_ggkh4")
 
 [node name="Level1" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1")]
 position = Vector2(445, 209)
-collision_layer = 3
-collision_mask = 3
+collision_layer = 2
+collision_mask = 5
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAABAAIAAAAAAAAAAAACAAIAAAAAAAAAAAADAAMAAAAAAAAAAAAEAAMAAAAEAAAAAAAFAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAADAAIAAAAEAAAAAAACAAMAAAADAAAAAAADAAQAAAADAAAAAAAGAAQAAAAAAAAAAAAHAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAJAAQAAAAEAAAAAAAAAAIAAAADAAAAAAALAAQAAAADAAAAAAAMAAQAAAAAAAAAAAANAAQAAAAAAAAAAAAOAAQAAAAAAAAAAAAPAAQAAAAEAAAAAAAQAAUAAAADAAAAAAARAAUAAAAAAAAAAAASAAUAAAAAAAAAAAATAAUAAAAEAAAAAAA=")
+tile_set = SubResource("TileSet_rlftl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2431, 395)
+texture = ExtResource("3_soxxn")
+
+[node name="Area Trigger" parent="Sprite2D" instance=ExtResource("4_3ly3h")]
+position = Vector2(92, -96)
+collision_mask = 2
+
+[node name="AreaTriggerLose" parent="." instance=ExtResource("6_o865g")]
+position = Vector2(699, 409)
+collision_layer = 8
+collision_mask = 2
+
+[node name="RigidBody2D" parent="." instance=ExtResource("5_43ti4")]
+position = Vector2(722, 438)

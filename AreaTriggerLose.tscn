@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpkyurio76c4e"]
+
+[ext_resource type="Script" path="res://scenes/LosingLose.gd" id="1_3xpb3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_muevi"]
+radius = 42.0
+height = 102.0
+
+[node name="AreaTriggerLose" type="Area2D"]
+position = Vector2(0, 1)
+script = ExtResource("1_3xpb3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_muevi")
+
+[connection signal="body_entered" from="." to="." method="_on_Hit_Trigger_body_entered"]
