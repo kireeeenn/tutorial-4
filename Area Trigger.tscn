@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dmlxt6hjgdusq"]
+[gd_scene load_steps=3 format=3 uid="uid://tvuu2kbswp13"]
 
 [ext_resource type="Script" path="res://scenes/AreaTrigger.gd" id="1_ypugq"]
 
@@ -13,4 +13,4 @@ script = ExtResource("1_ypugq")
 position = Vector2(-3.5, 2)
 shape = SubResource("RectangleShape2D_34lh5")
 
-[connection signal="body_entered" from="." to="." method="_on_Area_Trigger_body_entered"]
+[connection signal="body_entered" from="." to="." method="_on_area_trigger_body_entered"]
