@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dn57e24dsa2ww"]
+
+[ext_resource type="Script" path="res://scenes/LosingLose.gd" id="1_hvlxh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kidja"]
+size = Vector2(3360, 103)
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_hvlxh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, -5)
+shape = SubResource("RectangleShape2D_kidja")
+
+[connection signal="body_entered" from="." to="." method="_on_Hit_Trigger_body_entered"]
