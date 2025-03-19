@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyqnn1sempf1a"]
+
+[ext_resource type="Texture2D" uid="uid://bivk5n8i3vnqc" path="res://assets/kenney_platformerpack/PNG/Enemies/fishBlue.png" id="1_om0vp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0rqvf"]
+size = Vector2(83, 111)
+
+[node name="RigidBody2D" type="RigidBody2D"]
+can_sleep = false
+custom_integrator = true
+continuous_cd = 2
+contact_monitor = true
+max_contacts_reported = 5
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_0rqvf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_om0vp")
