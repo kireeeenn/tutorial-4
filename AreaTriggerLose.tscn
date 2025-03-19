@@ -14,4 +14,4 @@ script = ExtResource("1_3xpb3")
 position = Vector2(0, -1)
 shape = SubResource("CapsuleShape2D_muevi")
 
-[connection signal="body_entered" from="." to="." method="_on_Hit_Trigger_body_entered"]
+[connection signal="body_entered" from="." to="." method="_on_hit_trigger_body_entered"]

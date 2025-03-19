@@ -12,4 +12,4 @@ script = ExtResource("1_hvlxh")
 position = Vector2(-3, -5)
 shape = SubResource("RectangleShape2D_kidja")
 
-[connection signal="body_entered" from="." to="." method="_on_Hit_Trigger_body_entered"]
+[connection signal="body_entered" from="." to="." method="_on_hit_trigger_body_entered"]
